@@ -1,0 +1,1 @@
+url1 = ['https://naked-science.ru/article/climate/vybrasyvayut-plastik', 'https://naked-science.ru/article/column/kirpichi-iz-promyshlennyh', 'https://naked-science.ru/article/column/v-yufu-sozdali-byudzhetnuyu-tehnologiyu']
