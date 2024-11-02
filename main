@@ -1,0 +1,41 @@
+import random
+import telebot
+import os
+from urls import *
+
+bot = telebot.TeleBot("8019644861:AAEsuLZYgc_jLkmFoYCSKmiHC1xo3n30duU")
+
+images = os.listdir('images')
+
+print(os.listdir('images'))
+
+random_image = random.choice(images)
+
+@bot.message_handler(commands=['random'])
+def send_mem(message):
+    random_image = random.choice(images)
+    with open(f'images/{random_image}', 'rb') as f:  
+        bot.send_photo(message.chat.id, f)
+  
+
+@bot.message_handler(commands=['about'])
+def send_welcome(message):
+    bot.reply_to(message, '''Здравствуйте я ваш личный Телеграмм Бот Эколог.
+                 Я помогу вам начать заботиться о природе.
+                 Пока что доступны такие функции как:
+                 /tostart-Бот рассказывает с чего вам нужно начать
+                 /random-Бот показывает рандомную подделку из пластика
+                 /statya-Бот показывает рандомную статью про защиту природы''')
+    
+
+
+
+@bot.message_handler('statya')
+def send_statya(message):
+    urls = url1
+    
+    bot.send_message(message, random.choice(urls))
+
+
+bot.infinity_polling()
+
